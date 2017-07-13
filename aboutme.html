@@ -30,6 +30,11 @@ ul {
 
 li {
     float: left;
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
 }
 
 li a {
@@ -60,7 +65,7 @@ window.alert("Hi, welcome to my webpage!");
   <li><a class="active" href="#home">Home</a></li>
   <li><a href="#work">Work</a></li>
   <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
+  <li style="float:right"><a class="active" href="#about">About</a></li>
 </ul>
 <h2>
 <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="http://img11.deviantart.net/4642/i/2014/216/c/c/mamamoo__png___1_by_kseniakang-d7nfop9.png" style="float:right;width:400px;height:350px;">
