@@ -57,10 +57,6 @@ h2 {
 h3 {
 	color:pink
 	}
-#map {
-  width: 100%;
-  height: 400px;
-}
 </style>
 <script>
 window.alert("Hi, welcome to my webpage!");
@@ -85,17 +81,7 @@ function normalImg(x) {
 	x.style.height= "400px";
 	x.style.width= "350px";
 }
-function initMap() {
-  var uluru = {lat: 37.552, lng: 126.991};
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: uluru
-  });
-  var marker = new google.maps.Marker({
-    position: uluru,
-    map: map
-  });
-}
+
 </script>
 My name is Gabrielle Rodriguez, but I go by Gabbi. </h2>
 <p> I'm an incoming junior at Balboa High School, and an aspiring animator. I like reading, writing, playing video games, and watching movies.</p>
@@ -105,10 +91,71 @@ onclick= "document.getElementById('moreaboutme').style.display='block'">More Abo
 </button>
 <div>
 <a href="https://www.youtube.com/watch?v=NqWVM9GicFU">Someone used Floppy and Arduino to do something cool~</a>
-<h3>My Google Maps Demo</h3>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAy3_H7P_vXGR86qkHI_3vOepJ3MaiuzI&callback=initMap">
-</script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <h3>My Google Maps Demo</h3>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 400px;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 400px;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
 
+      function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 3,
+          center: {lat: 37.552, lng: 126.991}
+        });
+
+        // Create an array of alphabetical characters used to label the markers.
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        // Add some markers to the map.
+        // Note: The code uses the JavaScript Array.prototype.map() method to
+        // create an array of markers based on a given "locations" array.
+        // The map() method here has nothing to do with the Google Maps API.
+        var markers = locations.map(function(location, i) {
+          return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
+          });
+        });
+
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      }
+      var locations = [
+        {lat: 35.828370, lng: 128.565204}, 
+        {lat: 35.165206, lng: 129.049226}, 
+        {lat: 37.466361, lng: 126.705686},
+        {lat: 35.163123, lng: 126.837751},  
+        {lat: 34.698191, lng: 135.507404},  
+        {lat:  35.720076, lng: 139.725704},
+        {lat: 35.016685, lng: 135.763126},
+        ]
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAy3_H7P_vXGR86qkHI_3vOepJ3MaiuzI&callback=initMap">
+    </script>
+  </body>
+</html>
 </body>
 </html>
