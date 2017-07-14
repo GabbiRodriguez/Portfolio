@@ -85,6 +85,17 @@ function normalImg(x) {
 	x.style.height= "400px";
 	x.style.width= "350px";
 }
+function initMap() {
+  var uluru = {lat: -25.363, lng: 131.044};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: uluru
+  });
+  var marker = new google.maps.Marker({
+    position: uluru,
+    map: map
+  });
+}
 </script>
 My name is Gabrielle Rodriguez, but I go by Gabbi. </h2>
 <p> I'm an incoming junior at Balboa High School, and an aspiring animator. I like reading, writing, playing video games, and watching movies.</p>
@@ -99,17 +110,6 @@ onclick= "document.getElementById('moreaboutme').style.display='block'">More Abo
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAy3_H7P_vXGR86qkHI_3vOepJ3MaiuzI&callback=initMap">
 </script>
-function initMap() {
-  var uluru = {lat: -25.363, lng: 131.044};
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: uluru
-  });
-  var marker = new google.maps.Marker({
-    position: uluru,
-    map: map
-  });
-}
 
 </body>
 </html>
