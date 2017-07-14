@@ -54,6 +54,13 @@ p {
 h2 {
 	color: pink
 	}
+h3 {
+	color:pink
+	}
+#map {
+  width: 100%;
+  height: 400px;
+}
 </style>
 <script>
 window.alert("Hi, welcome to my webpage!");
@@ -87,6 +94,22 @@ onclick= "document.getElementById('moreaboutme').style.display='block'">More Abo
 </button>
 <div>
 <a href="https://www.youtube.com/watch?v=NqWVM9GicFU">Someone used Floppy and Arduino to do something cool~</a>
+<h3>My Google Maps Demo</h3>
+<div id="map"></div>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAy3_H7P_vXGR86qkHI_3vOepJ3MaiuzI&callback=initMap">
+</script>
+function initMap() {
+  var uluru = {lat: -25.363, lng: 131.044};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: uluru
+  });
+  var marker = new google.maps.Marker({
+    position: uluru,
+    map: map
+  });
+}
 
 </body>
 </html>
